@@ -103,6 +103,7 @@
 .hero-copy {
   flex: 1 1 480px;
   min-width: 0;
+  
 }
 .hero-badge {
   display: inline-flex;
@@ -136,7 +137,7 @@
 .hero-sub {
   font-size: clamp(16px, 1.6vw, 19px);
   line-height: 1.6;
-  color: var(--color-lavender);
+  color: white;
   max-width: 520px;
   margin: 0 0 var(--space-5);
   text-wrap: pretty;
