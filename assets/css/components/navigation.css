@@ -1,0 +1,213 @@
+/* ==========================================================================
+   navigation.css — premium sticky header, desktop nav, mobile burger menu
+   Height and spacing follow the 8px scale (--space-*) defined in variables.css
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow:
+    0 1px 0 rgba(20, 30, 90, 0.04),
+    0 12px 24px -16px rgba(20, 30, 90, 0.18);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: 80px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+.nav-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+  height: 100%;
+}
+.nav-links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  transition: color var(--transition-fast);
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-red);
+  transition: right var(--transition-base);
+}
+.nav-links a:hover {
+  color: var(--color-red);
+}
+.nav-links a:hover::after,
+.nav-links a.is-active::after {
+  right: 0;
+}
+.nav-links a.is-active {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+.nav-links a.is-active::after {
+  background: var(--color-navy);
+}
+
+.nav-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--color-red);
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  flex: none;
+  min-height: 48px;
+  box-shadow: 0 8px 20px -6px rgba(221, 36, 28, 0.55);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+.nav-call:hover {
+  background: var(--color-red-hover);
+  transform: translateY(-1px);
+  color:#fff;
+  box-shadow: 0 10px 22px -6px rgba(221, 36, 28, 0.6);
+}
+.nav-call:active {
+  transform: translateY(0);
+}
+.nav-call-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  flex: none;
+}
+.nav-call-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  font-weight: 700;
+  font-size: 14px;
+}
+.nav-call-text small {
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.nav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  cursor: pointer;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border-radius: var(--radius-sm);
+  flex: none;
+  transition: background-color var(--transition-fast);
+}
+.nav-burger:hover {
+  background: var(--color-bg-cream);
+  
+}
+
+.nav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4) var(--space-4);
+  border-top: 1px solid var(--color-border);
+  background: #fff;
+}
+.nav-mobile-menu.is-open {
+  display: flex;
+}
+.nav-mobile-menu a {
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 15.5px;
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid transparent;
+  min-height: var(--tap-target);
+  display: flex;
+  align-items: center;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.nav-mobile-menu a:hover {
+  background: var(--color-bg-cream);
+  color: var(--color-red);
+}
+.nav-mobile-menu a.is-active {
+  color: var(--color-navy);
+  background: var(--color-bg-cream);
+  border-left-color: var(--color-red);
+  font-weight: 700;
+}
+.nav-mobile-call {
+  margin-top: var(--space-2);
+  gap: var(--space-2);
+  text-align: center;
+  justify-content: center;
+  background: var(--color-red);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  min-height: var(--tap-target);
+  display: flex;
+  align-items: center;
+  border-left: none;
+  box-shadow: 0 8px 20px -6px rgba(221, 36, 28, 0.45);
+}
+.nav-mobile-call:hover {
+  background: var(--color-red-hover);
+  color: #fff;
+}
