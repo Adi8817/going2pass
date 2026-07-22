@@ -121,3 +121,45 @@
 @media (min-width: 1600px) {
   .nav-bar, .hero-inner, .welcome, .locations-inner, .footer-grid { padding-left: var(--space-5); padding-right: var(--space-5); }
 }
+
+/* ==========================================================================
+   Mobile spacing refinements (≤768px only) — consistent breathing room
+   across sections, headings, buttons, cards and footer. Sizes/colors/type
+   untouched; padding/margin/gap only.
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Consistent outer container gutter */
+  .container, .section, .welcome, .faq-section, .hero,
+  .locations-inner, .stats-band, .hours-card, .about-hero-inner {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  /* Section-to-section vertical rhythm */
+  .section { padding-top: var(--space-7); padding-bottom: var(--space-7); }
+  .welcome { padding-top: var(--space-7); padding-bottom: var(--space-7); }
+
+  /* Heading / intro / paragraph spacing */
+  .section-intro { margin-bottom: var(--space-5); }
+  .section-title { margin-bottom: var(--space-3); }
+  .eyebrow { margin-bottom: var(--space-2); }
+  .welcome-copy p, .legacy-intro-copy p, .about-intro-copy p { margin-bottom: var(--space-3); }
+
+  /* Button groups: comfortable tap spacing, no crowding */
+  .hero-actions, .about-hero-actions, .about-intro-actions, .cta-actions {
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  /* Card interior padding */
+  .service-card, .why-card, .pricing-card, .value-card,
+  .about-feature-card, .why-learn-item, .legacy-offers, .about-callout {
+    padding: var(--space-5);
+  }
+  .why-learn-item { gap: var(--space-3); }
+
+  /* Footer breathing room */
+  .footer-grid { padding-top: var(--space-6); padding-bottom: var(--space-6); gap: var(--space-6); }
+  .footer-col { margin-bottom: var(--space-2); }
+  .footer-bottom-inner { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+}

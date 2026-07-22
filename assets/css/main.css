@@ -13,6 +13,9 @@
 @import url("components/lead-form.css");
 @import url("components/welcome.css");
 @import url("components/services.css");
+@import url("components/why-learn.css");
+@import url("components/offers.css");
+@import url("components/legacy-about.css");
 @import url("components/why-choose-us.css");
 @import url("components/locations.css");
 @import url("components/testimonials.css");
@@ -20,6 +23,7 @@
 @import url("components/cta.css");
 @import url("components/faq.css");
 @import url("components/footer.css");
+@import url("components/about.css");
 
 @import url("utilities.css");
 @import url("responsive.css");

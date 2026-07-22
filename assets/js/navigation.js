@@ -57,9 +57,38 @@ window.Going2Pass.navigation = (function (utils) {
     sections.forEach(function (section) { observer.observe(section); });
   }
 
+  // .site-header is position:fixed (see navigation.css), so it no longer
+  // occupies space in normal flow. This reserves that space on <body> to
+  // prevent content from jumping under the fixed header.
+  function initStickyOffset() {
+    var header = utils.qs('.site-header');
+    if (!header) return;
+
+    function applyOffset() {
+      document.body.style.paddingTop = header.offsetHeight + 'px';
+    }
+
+    applyOffset();
+    window.addEventListener('resize', utils.debounce(applyOffset, 150));
+  }
+
+  function initServicesSubmenu() {
+    var toggle = utils.qs('.nav-mobile-toggle');
+    var submenu = utils.qs('.nav-mobile-submenu');
+    if (!toggle || !submenu) return;
+
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      submenu.style.maxHeight = isOpen ? '' : submenu.scrollHeight + 'px';
+    });
+  }
+
   function init() {
     initMobileMenu();
     initActiveLinkTracking();
+    initStickyOffset();
+    initServicesSubmenu();
   }
 
   return { init: init };
